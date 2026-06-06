@@ -29,9 +29,10 @@ add_executable(odrive_can_node
   src/main.cpp
   include/odrive_can_node.hpp)
 
-ament_target_dependencies(odrive_can_node
-  rclcpp
-  std_srvs
+# ament_target_dependencies was removed in Lyrical; use modern CMake targets.
+target_link_libraries(odrive_can_node
+  rclcpp::rclcpp
+  ${std_srvs_TARGETS}
 )
 
 target_compile_features(odrive_can_node PRIVATE cxx_std_20)

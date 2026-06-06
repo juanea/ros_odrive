@@ -23,9 +23,8 @@ ament_auto_add_library(
   src/odrive_hardware_interface.cpp
 )
 
-ament_target_dependencies(odrive_ros2_control_plugin
-  rclcpp
-)
+# ament_auto_add_library already links the package.xml dependencies (rclcpp,
+# hardware_interface, ...). ament_target_dependencies was removed in Lyrical.
 
 pluginlib_export_plugin_description_file(hardware_interface odrive_hardware_interface.xml)
 
